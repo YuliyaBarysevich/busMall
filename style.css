@@ -9,8 +9,12 @@ header {
   margin-bottom: 80px;
 }
 
+header img {
+  margin: 20px auto;
+  width: 450px;
+}
+
 h1 {
-  margin-top: 40px;
   background-color: #2E3C8C;
   padding: 50px 0px;
   color: #F2E750;
@@ -46,7 +50,7 @@ h2 {
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
-  margin-left: 40px;
+  margin-left: 20px;
   background-color: #03178C;
   width: 300px;
   padding: 20px;
@@ -58,18 +62,33 @@ ul li {
   padding-bottom: 10px;
   font-size: 18px;
 }
+form{
+  text-align: center;
+}
+
+button{
+  width: 200px;
+  height: 60px;
+  border-radius: 13px;
+  background-color: #F2E750;
+  box-shadow: -5px -2px 15px #757575;
+  color:#03178C;
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 20px;
+}
 
 p {
   text-align: center;
   width: 800px;
   margin-left: 30px;
-  margin-top: 80px;
+  margin-top: 40px;
   font-size: 18px;
   margin-bottom: 50px;
 }
 
 footer {
-  height: 80px;
+  height: 100px;
   background-color: #2E3C8C;
 }
 

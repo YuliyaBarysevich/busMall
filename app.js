@@ -1,6 +1,6 @@
 'use strict'
 
-
+// constructor function
 function ProductImage(image, name) {
   this.timesClicked = 0;
   this.timesShown = 0;
@@ -10,9 +10,12 @@ function ProductImage(image, name) {
   ProductImage.allImages.push(this);
 }
 
+//arrays of all objects
 ProductImage.allImages = [];
 
-var rounds = 3;
+//declaring how many times pictures will display
+var rounds = 24;
+//variable to increment each time user makes a choice 
 ProductImage.totalRounds = 0;
 
 
@@ -40,11 +43,13 @@ new ProductImage('img/wine-glass.jpg', 'wine-glass.jpg')
 
 console.log(ProductImage.allImages)
 
+//accessing elements in HTML
 var imagesContainer = document.getElementById('pic-container')
 var leftImage = document.getElementById('left-image')
 var middleImage = document.getElementById('middle-image')
 var rightImage = document.getElementById('right-image')
 var listElement = document.getElementById('list-data')
+var buttonElement = document.getElementById("collect-answers")
 
 
 function generateProducts() {
@@ -97,17 +102,24 @@ function clickImage (event) {
     }
   }
   if (ProductImage.totalRounds > rounds) {
-    for (var j = 0; j < ProductImage.allImages.length; j ++){
-      var listPrint = document.createElement('li');
-      listPrint.textContent = ProductImage.allImages[j].name + ' had ' + ProductImage.allImages[j].timesClicked + ' votes, and was seen ' + ProductImage.allImages[j].timesShown + ' times.'
-      listElement.appendChild(listPrint)
-    }
     imagesContainer.removeEventListener('click', clickImage)
-    alert ('Thanks for voting')
+    alert ('Thanks for your answers!')
   }
   var newProducts = generateProducts();
-      renderProducts(newProducts[0], newProducts[1], newProducts[2])
+  renderProducts(newProducts[0], newProducts[1], newProducts[2])
 }
 
+buttonElement.addEventListener('submit', collectAnswers)
+function collectAnswers (event) {
+  event.preventDefault();
+  for (var j = 0; j < ProductImage.allImages.length; j ++){
+    var listPrint = document.createElement('li');
+    listPrint.textContent = ProductImage.allImages[j].name + ' had ' + ProductImage.allImages[j].timesClicked + ' votes, and was seen ' + ProductImage.allImages[j].timesShown + ' times.'
+    listElement.appendChild(listPrint)
+  }
+  // listPrint.innerHTML = '';
+  // var nextClient = generateProducts();
+  // renderProducts(nextClient[0],nextClient[1], nextClient[2])
+}
 
 
