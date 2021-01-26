@@ -14,32 +14,32 @@ function ProductImage(image, name) {
 ProductImage.allImages = [];
 
 //declaring how many times pictures will display
-var rounds = 24;
+var rounds = 3;
 //variable to increment each time user makes a choice 
 ProductImage.totalRounds = 0;
 
 
 
-new ProductImage('img/bag.jpg', 'bag.jpg')
-new ProductImage('img/banana.jpg', 'banana.jpg')
-new ProductImage('img/bathroom.jpg', 'bathroom.jpg')
-new ProductImage('img/boots.jpg', 'boots.jpg')
-new ProductImage('img/breakfast.jpg', 'breakfast.jpg')
-new ProductImage('img/bubblegum.jpg', 'bubblegum.jpg')
-new ProductImage('img/chair.jpg', 'chair.jpg')
-new ProductImage('img/cthulhu.jpg', 'cthulhu.jpg')
-new ProductImage('img/dog-duck.jpg', 'dog-duck.jpg')
-new ProductImage('img/dragon.jpg', 'dragon.jpg')
-new ProductImage('img/pen.jpg', 'pen.jpg')
-new ProductImage('img/pet-sweep.jpg', 'pet-sweep.jpg')
-new ProductImage('img/scissors.jpg', 'scissors.jpg')
-new ProductImage('img/shark.jpg', 'shark.jpg')
-new ProductImage('img/sweep.png', 'sweep.png')
-new ProductImage('img/tauntaun.jpg', 'tauntaun.jpg')
-new ProductImage('img/unicorn.jpg', 'unicorn.jpg')
-new ProductImage('img/usb.gif', 'usb.gif')
-new ProductImage('img/water-can.jpg', 'water-can.jpg')
-new ProductImage('img/wine-glass.jpg', 'wine-glass.jpg')
+new ProductImage('img/bag.jpg', 'bag')
+new ProductImage('img/banana.jpg', 'banana')
+new ProductImage('img/bathroom.jpg', 'bathroom')
+new ProductImage('img/boots.jpg', 'boots')
+new ProductImage('img/breakfast.jpg', 'breakfast')
+new ProductImage('img/bubblegum.jpg', 'bubblegum')
+new ProductImage('img/chair.jpg', 'chair')
+new ProductImage('img/cthulhu.jpg', 'cthulhu')
+new ProductImage('img/dog-duck.jpg', 'dog-duck')
+new ProductImage('img/dragon.jpg', 'dragon')
+new ProductImage('img/pen.jpg', 'pen')
+new ProductImage('img/pet-sweep.jpg', 'pet-sweep')
+new ProductImage('img/scissors.jpg', 'scissors')
+new ProductImage('img/shark.jpg', 'shark')
+new ProductImage('img/sweep.png', 'sweep')
+new ProductImage('img/tauntaun.jpg', 'tauntaun')
+new ProductImage('img/unicorn.jpg', 'unicorn')
+new ProductImage('img/usb.gif', 'usb')
+new ProductImage('img/water-can.jpg', 'water-can')
+new ProductImage('img/wine-glass.jpg', 'wine-glass')
 
 console.log(ProductImage.allImages)
 
