@@ -55,38 +55,37 @@ function generateProducts() {
     } 
   }
 
-  // ProductImage.picturesWereShown[0] = ProductImage.allImages[leftItem].name;
-  // ProductImage.picturesWereShown[1] = ProductImage.allImages[middleItem].name;
-  // ProductImage.picturesWereShown[2] = ProductImage.allImages[rightItem].name;
-  
-
   var leftProduct = ProductImage.allImages[leftItem];
   var middleProduct = ProductImage.allImages[middleItem];
   var rightProduct = ProductImage.allImages[rightItem];
 
-  
 
   return [leftProduct, middleProduct, rightProduct]
 }
 
 //changed this function how we did it in class, but I think it's not working
+
+
+
 function renderProducts () {
 
-  var currentlyRendered = [leftImage.name, middleImage.name, rightImage.name]
-  console.log(currentlyRendered)
-
+  // var currentlyRendered = [leftImage.name, middleImage.name, rightImage.name]
+  // console.log(currentlyRendered)
+  var currentlyRendered = generateProducts()
+ 
   var newImages = generateProducts()
+  console.log(newImages[0].productName)
 
   while (
-    currentlyRendered[0] === newImages[0].name ||
-    currentlyRendered[1] === newImages[0].name ||
-    currentlyRendered[2] === newImages[0].name ||
-    currentlyRendered[0] === newImages[1].name ||
-    currentlyRendered[1] === newImages[1].name ||
-    currentlyRendered[2] === newImages[1].name ||
-    currentlyRendered[0] === newImages[2].name ||
-    currentlyRendered[1] === newImages[2].name ||
-    currentlyRendered[2] === newImages[2].name 
+    currentlyRendered[0].productName === newImages[0].productName||
+    currentlyRendered[1].productName === newImages[0].productName||
+    currentlyRendered[2].productName === newImages[0].productName||
+    currentlyRendered[0].productName === newImages[1].productName||
+    currentlyRendered[1].productName === newImages[1].productName||
+    currentlyRendered[2].productName === newImages[1].productName||
+    currentlyRendered[0].productName === newImages[2].productName||
+    currentlyRendered[1].productName === newImages[2].productName||
+    currentlyRendered[2].productName === newImages[2].productName
   ) {
     var newImages = generateProducts()
   }
@@ -184,101 +183,16 @@ var ctx = document.getElementById('myChart').getContext('2d');
   
         data: totalVotes,
         
-        backgroundColor: [
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)', 
-          'rgba(255, 206, 86, 5)', 
-          'rgba(255, 206, 86, 5)'
-  
-        ],
-        borderColor: [
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)',
-          'rgba(255, 206, 86, 5)', 
-          'rgba(255, 206, 86, 5)', 
-          'rgba(255, 206, 86, 5)'
-        ],
+        backgroundColor: new Array(20).fill('rgba(255, 206, 86, 5)'),
+        // ['rgba(255, 206, 86, 5)'],
         borderWidth: 1
       },{
         label: 'Times Displayed',
   
         data: totalTimesDisplayed,
         
-        backgroundColor: [
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)'
-        ],
-        borderColor: [
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(54, 162, 235, 0.8)'
-        ],
+        backgroundColor: new Array(20).fill('rgba(54, 162, 235, 0.8)'),
+        //  ['rgba(54, 162, 235, 0.8)',],
         borderWidth: 1
       } ]
     },
