@@ -22,8 +22,9 @@ function ProductImage(name) {
 ProductImage.allImages.push(this);
 }
 
+
 //arrays of all objects
-ProductImage.allImages = [];
+ProductImage.allImages =  [];
 
 //variables to count rounds of displaying
 var rounds = 24;
@@ -65,29 +66,25 @@ function generateProducts() {
 
 //changed this function how we did it in class, but I think it's not working
 
-
-
 function renderProducts () {
 
-  // var currentlyRendered = [leftImage.name, middleImage.name, rightImage.name]
-  // console.log(currentlyRendered)
-  var currentlyRendered = generateProducts()
- 
+  var currentlyRendered = [leftImage.name, middleImage.name, rightImage.name]
+  
   var newImages = generateProducts()
-  console.log(newImages[0].productName)
+ 
 
   while (
-    currentlyRendered[0].productName === newImages[0].productName||
-    currentlyRendered[1].productName === newImages[0].productName||
-    currentlyRendered[2].productName === newImages[0].productName||
-    currentlyRendered[0].productName === newImages[1].productName||
-    currentlyRendered[1].productName === newImages[1].productName||
-    currentlyRendered[2].productName === newImages[1].productName||
-    currentlyRendered[0].productName === newImages[2].productName||
-    currentlyRendered[1].productName === newImages[2].productName||
-    currentlyRendered[2].productName === newImages[2].productName
+    currentlyRendered[0] === newImages[0].productName||
+    currentlyRendered[1] === newImages[0].productName||
+    currentlyRendered[2] === newImages[0].productName||
+    currentlyRendered[0] === newImages[1].productName||
+    currentlyRendered[1] === newImages[1].productName||
+    currentlyRendered[2] === newImages[1].productName||
+    currentlyRendered[0] === newImages[2].productName||
+    currentlyRendered[1] === newImages[2].productName||
+    currentlyRendered[2] === newImages[2].productName
   ) {
-    var newImages = generateProducts()
+    newImages = generateProducts()
   }
 
   leftImage.src = newImages[0].image;
@@ -111,6 +108,9 @@ function renderProducts () {
 }
 
 renderProducts ()
+// var randomProducts = generateProducts()
+// renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
+// console.log(randomProducts)
 
 
 
@@ -123,20 +123,22 @@ function clickImage (event) {
       ProductImage.totalRounds++;
     }
   }
-  renderProducts();
 
   if (rounds < ProductImage.totalRounds) {
     imagesContainer.removeEventListener('click', clickImage)
     alert ('Thanks for your answers!')
-    // for (var j = 0; j < ProductImage.allImages.length; j ++){
-    //       var listPrint = document.createElement('li');
-    //       listPrint.textContent = ProductImage.allImages[j].name + ' had ' + ProductImage.allImages[j].timesClicked + ' votes, and was seen ' + ProductImage.allImages[j].timesShown + ' times.'
-    //       listElement.appendChild(listPrint)
-    //     }
+  } else {
+    var randomProducts = generateProducts()
+    renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
   }
 }
 
-renderProducts()
+var votesFromStorage = localStorage.getItem('Votes') 
+var votesArray = JSON.parse(votesFromStorage);
+
+var displayedFromStorage = localStorage.getItem('Displayed') 
+var displayedTimesArray = JSON.parse(displayedFromStorage)
+
 
 //BUTTON ELEMENT TO DISPLAY LIDT WITH DATA
 // buttonElement.addEventListener('submit', collectAnswers)
@@ -155,23 +157,28 @@ renderProducts()
 
 
 
-
 //creating a chart. Shows up only when we press a button
 
 buttonElement.addEventListener('submit', collectAnswers)
 function collectAnswers (event) {
-event.preventDefault();
-var ctx = document.getElementById('myChart').getContext('2d');
+  event.preventDefault();
+  buttonElement.style.display='none';
+  var ctx = document.getElementById('myChart').getContext('2d');
 
   var totalVotes = []
   var totalTimesDisplayed = []
 
   for (var i = 0; i < ProductImage.allImages.length; i++) {
-    totalVotes.push(ProductImage.allImages[i].timesClicked)
-    totalTimesDisplayed.push(ProductImage.allImages[i].timesShown)
+    totalVotes.push((ProductImage.allImages[i].timesClicked) +  votesArray[i])
+    totalTimesDisplayed.push((ProductImage.allImages[i].timesShown) + displayedTimesArray[i])
   }
   console.log(totalVotes)
   console.log(totalTimesDisplayed)
+
+  var votesAsString = JSON.stringify(totalVotes);
+  localStorage.setItem('Votes', votesAsString);
+  var timesDisplayedString = JSON.stringify(totalTimesDisplayed);
+  localStorage.setItem('Displayed', timesDisplayedString);
 
 
   var myChart = new Chart(ctx, {
