@@ -16,7 +16,7 @@ var buttonElement = document.getElementById("collect-answers")
 function ProductImage(name) {
   this.timesClicked = 0;
   this.timesShown = 0;
-  this.productName = name.substring(0, name.length-4);
+  this.name = name.substring(0, name.length-4);
   this.image = `img/${name}`;
 
 ProductImage.allImages.push(this);
@@ -64,25 +64,26 @@ function generateProducts() {
   return [leftProduct, middleProduct, rightProduct]
 }
 
-//changed this function how we did it in class, but I think it's not working
+//changed after lecture
 
 function renderProducts () {
 
   var currentlyRendered = [leftImage.name, middleImage.name, rightImage.name]
-  
+
   var newImages = generateProducts()
+  // console.log(newImages)
  
 
   while (
-    currentlyRendered[0] === newImages[0].productName||
-    currentlyRendered[1] === newImages[0].productName||
-    currentlyRendered[2] === newImages[0].productName||
-    currentlyRendered[0] === newImages[1].productName||
-    currentlyRendered[1] === newImages[1].productName||
-    currentlyRendered[2] === newImages[1].productName||
-    currentlyRendered[0] === newImages[2].productName||
-    currentlyRendered[1] === newImages[2].productName||
-    currentlyRendered[2] === newImages[2].productName
+    currentlyRendered[0] === newImages[0].name||
+    currentlyRendered[1] === newImages[0].name||
+    currentlyRendered[2] === newImages[0].name||
+    currentlyRendered[0] === newImages[1].name||
+    currentlyRendered[1] === newImages[1].name||
+    currentlyRendered[2] === newImages[1].name||
+    currentlyRendered[0] === newImages[2].name||
+    currentlyRendered[1] === newImages[2].name||
+    currentlyRendered[2] === newImages[2].name
   ) {
     newImages = generateProducts()
   }
@@ -108,9 +109,7 @@ function renderProducts () {
 }
 
 renderProducts ()
-// var randomProducts = generateProducts()
-// renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
-// console.log(randomProducts)
+
 
 
 
@@ -132,15 +131,15 @@ function clickImage (event) {
     renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
   }
 }
-
-var votesFromStorage = localStorage.getItem('Votes') 
+//works only with array of 0's 
+var votesFromStorage = localStorage.getItem('Votes') || '[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]';
 var votesArray = JSON.parse(votesFromStorage);
 
-var displayedFromStorage = localStorage.getItem('Displayed') 
+var displayedFromStorage = localStorage.getItem('Displayed') || '[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]';
 var displayedTimesArray = JSON.parse(displayedFromStorage)
 
 
-//BUTTON ELEMENT TO DISPLAY LIDT WITH DATA
+// BUTTON ELEMENT TO DISPLAY LIST WITH DATA
 // buttonElement.addEventListener('submit', collectAnswers)
 // function collectAnswers (event) {
 //   event.preventDefault();
@@ -149,10 +148,10 @@ var displayedTimesArray = JSON.parse(displayedFromStorage)
 //     listPrint.textContent = ProductImage.allImages[j].name + ' had ' + ProductImage.allImages[j].timesClicked + ' votes, and was seen ' + ProductImage.allImages[j].timesShown + ' times.'
 //     listElement.appendChild(listPrint)
 //   }
-  // buttonElement.removeEventListener('submit', collectAnswers)
-  // listPrint.innerHTML = '';
-  // var nextClient = generateProducts();
-  // renderProducts(nextClient[0],nextClient[1], nextClient[2])
+//   buttonElement.removeEventListener('submit', collectAnswers)
+//   listPrint.innerHTML = '';
+//   var nextClient = generateProducts();
+//   renderProducts(nextClient[0],nextClient[1], nextClient[2])
 // }
 
 
@@ -162,6 +161,7 @@ var displayedTimesArray = JSON.parse(displayedFromStorage)
 buttonElement.addEventListener('submit', collectAnswers)
 function collectAnswers (event) {
   event.preventDefault();
+  //button disappears after submitting a form 
   buttonElement.style.display='none';
   var ctx = document.getElementById('myChart').getContext('2d');
 
