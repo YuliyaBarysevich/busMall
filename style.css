@@ -22,16 +22,18 @@ h1 {
 
 
 
-main {
+.random-pics {
   display: flex;
+  margin-left: 50px;
 }
 
 section img {
-  width: 230px;
-  height: 230px;
-  margin: 100px 20px 20px 20px;
+  width: 250px;
+  height: 250px;
+  margin: 50px 20px 20px 20px;
   border: 2px solid #03178C;
   box-shadow: -5px -5px 10px #03178C;
+  cursor: pointer;
 }
 
 section img:active{
@@ -40,10 +42,13 @@ section img:active{
 
 }
 
-ul {
-  border: 3px solid #03178C;
-  padding: 15px;
-  background-color: #faf4a8;
+#text p {
+  width: 300px;
+  margin-right: 50px;
+  line-height: 1.2em;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
 }
 
 h2 {
@@ -58,10 +63,7 @@ h2 {
   color:#F2E750;
 }
 
-ul li {
-  padding-bottom: 10px;
-  font-size: 18px;
-}
+
 form{
   text-align: center;
 }
@@ -76,15 +78,32 @@ button{
   font-size: 23px;
   font-weight: bold;
   margin-top: 20px;
+  cursor: pointer;
 }
 
-p {
+#sale {
+  width: 300px;
+
+}
+
+
+
+#random-text img{
+  width: 400px;
+  display: inline;
+  margin-left: 50px;
+
+}
+
+#usual-text {
   text-align: center;
   width: 800px;
-  margin-left: 30px;
   margin-top: 40px;
+  margin-right: 30px;
   font-size: 18px;
   margin-bottom: 50px;
+  line-height: 1.3em;
+  float: right;
 }
 
 footer {

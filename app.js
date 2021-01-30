@@ -190,7 +190,7 @@ function collectAnswers (event) {
   
         data: totalVotes,
         
-        backgroundColor: new Array(20).fill('rgba(255, 206, 86, 5)'),
+        backgroundColor: new Array(20).fill('rgba(242, 231,	80, 0.9)'),
         // ['rgba(255, 206, 86, 5)'],
         borderWidth: 1
       },{
@@ -198,7 +198,7 @@ function collectAnswers (event) {
   
         data: totalTimesDisplayed,
         
-        backgroundColor: new Array(20).fill('rgba(54, 162, 235, 0.8)'),
+        backgroundColor: new Array(20).fill('rgba(46, 60, 140, 0.9)'),
         //  ['rgba(54, 162, 235, 0.8)',],
         borderWidth: 1
       } ]
